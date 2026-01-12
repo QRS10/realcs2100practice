@@ -2,22 +2,24 @@
 TODO: A very useful temperature-conversion app.
 """
 
+# anything below this is cold
+TEMP_THRESHOLD_F: float = 68
+
 def is_it_cold_f(temp_f: float) -> bool:
-    """Determines if the inputted temp is below a certain threshold
+    """
+    Determines if the inputted temp is below a certain threshold
+
     Parameters
     ==========
     temp_f: float 
         supplied temperature in F
-    
+        
     Returns
     =======
     bool
-
+        True if it is below a threshold
     """
-    if temp_f < 68:
-        return True
-    else:
-        return False
+    return temp_f < 68
 
 
 def greet_human() -> None:

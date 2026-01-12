@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch, Mock
 
 from main import (
-    greet_human, is_it_cold_f
+    greet_human, is_it_cold_f, TEMP_THRESHOLD_F
 )
 
 class TestMainApp(unittest.TestCase):
@@ -21,16 +21,15 @@ class TestMainApp(unittest.TestCase):
 
     def test_isiscoldf_thresh(self) -> None:
         """Tests is_it_cold_f for threshold"""
-        self.assertFalse(is_it_cold_f(68))
+        self.assertFalse(is_it_cold_f(TEMP_THRESHOLD_F))
 
     def test_isiscoldf_above(self) -> None:
         """Tests is_it_cold_f for above threshold"""
-        self.assertFalse(is_it_cold_f(69))
+        self.assertFalse(is_it_cold_f(TEMP_THRESHOLD_F + 1))
 
     def test_isiscoldf_below(self) -> None:
         """Tests is_it_cold_f for below threshold"""
-        self.assertTrue(is_it_cold_f(67))
-
+        self.assertTrue(is_it_cold_f(TEMP_THRESHOLD_F - 1))
 
     @patch('builtins.input', side_effect=['alice'])
     @patch('builtins.print')
