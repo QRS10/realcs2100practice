@@ -13,7 +13,7 @@ def is_it_cold_f(temp_f: float) -> bool:
     ==========
     temp_f: float 
         supplied temperature in F
-        
+
     Returns
     =======
     bool
